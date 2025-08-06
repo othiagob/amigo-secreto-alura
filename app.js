@@ -12,8 +12,7 @@ window.adicionarAmigo = function() {
         alert('Opa! Preciso que insira um nome válido!');
         return;
     }
-    
-    // Adiciona ao array
+
     amigos.push(nome);
     
     // vamos atualizar a tela para ver o amigo inserido
@@ -35,7 +34,6 @@ function atualizarListaAmigos() {
     });
 }
 
-// Função para sortear
 window.sortearAmigo = function() {
     if (amigos.length === 0) {
         alert('Adicione amigos antes de sortear!');
