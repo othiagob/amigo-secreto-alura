@@ -39,6 +39,6 @@ O app te ajuda a:
 Esse app é perfeito pra quem quer organizar um amigo secreto rapidinho, sem complicação. Ele é simples, mas cumpre o que promete com um toque de estilo. Além disso, foi um jeito incrível de praticar lógica de programação, manipulação do DOM e estilização com CSS. 🚀
 
 ## Quer contribuir?
-Se você tiver ideias pra deixar o app ainda mais legal (tipo adicionar animações, salvar a lista ou até um tema natalino 🎄), sinta-se à vontade pra mandar suas sugestões ou abrir um pull request!
+Se você tiver ideias pra deixar o app ainda mais legal sinta-se à vontade pra mandar suas sugestões ou abrir um pull request!
 
-Desenvolvido com 💙 por Thiago Borghardt.
+Desenvolvido por Thiago Borghardt.
