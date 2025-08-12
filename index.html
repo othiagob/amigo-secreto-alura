@@ -3,38 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sorteador de Amigo Secreto - Organize seu amigo secreto de forma fácil e divertida">
+    <meta name="keywords" content="amigo secreto, sorteio, festa, confraternização">
+    <meta name="author" content="Thiago S. Borghardt">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700;900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-    <title>Amigo Secreto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <title>🎁 Amigo Secreto | Sorteador Online</title>
 </head>
 
 <body>
+    <!-- Background animated elements -->
+    <div class="background-decoration">
+        <div class="floating-gift gift-1">🎁</div>
+        <div class="floating-gift gift-2">🎄</div>
+        <div class="floating-gift gift-3">⭐</div>
+        <div class="floating-gift gift-4">🎈</div>
+        <div class="floating-gift gift-5">🎉</div>
+        <div class="floating-gift gift-6">❄️</div>
+    </div>
+
     <main class="main-content">
         <header class="header-banner">
-            <h1 class="main-title">Amigo Secreto</h1>
-            <img src="assets/amigo-secreto.png" alt="Imagem representativa de amigo secreto">
+            <div class="header-content">
+                <div class="title-wrapper">
+                    <h1 class="main-title">
+                        <i class="fas fa-gift"></i>
+                        Amigo Secreto
+                    </h1>
+                    <p class="subtitle">Organize seu sorteio de forma mágica! ✨</p>
+                </div>
+                <div class="header-image">
+                    <img src="assets/amigo-secreto.png" alt="Ilustração de amigo secreto">
+                </div>
+            </div>
         </header>
         
-        <section class="input-section">
-            <h2 class="section-title">Digite o nome dos seus amigos</h2>
-            <div class="input-wrapper">
-                <input type="text" id="amigo" class="input-name" placeholder="Digite um nome">
-                <button class="button-add" onclick="adicionarAmigo()">Adicionar</button>
-            </div>
-           
-            <ul id="listaAmigos" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>
-            <ul id="resultado" class="result-list" aria-live="polite"></ul>
+        <section class="content-section">
+            <div class="container">
+                <div class="input-card">
+                    <h2 class="section-title">
+                        <i class="fas fa-users"></i>
+                        Adicione os participantes
+                    </h2>
+                    
+                    <div class="input-wrapper">
+                        <div class="input-container">
+                            <i class="fas fa-user input-icon"></i>
+                            <input type="text" id="amigo" class="input-name" placeholder="Digite o nome do participante" maxlength="30">
+                            <div class="input-validation" id="inputValidation"></div>
+                        </div>
+                        <button class="button-add" onclick="adicionarAmigo()" title="Adicionar participante">
+                            <i class="fas fa-plus"></i>
+                            <span>Adicionar</span>
+                        </button>
+                    </div>
+                    
+                    <div class="participants-section">
+                        <div class="participants-header" id="participantsHeader" style="display: none;">
+                            <h3><i class="fas fa-list"></i> Participantes (<span id="participantCount">0</span>)</h3>
+                            <button class="clear-all-btn" onclick="limparTodos()" title="Limpar todos">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                        <ul id="listaAmigos" class="name-list" role="list"></ul>
+                    </div>
+                </div>
 
-            <div class="button-container">
-                <button class="button-draw" onclick="sortearAmigo()" aria-label="Sortear amigo secreto">
-                    <img src="assets/play_circle_outline.png" alt="Ícone para sortear">
-                    Sortear amigo
-                </button>
+                <div class="action-section">
+                    <button class="button-draw" id="sortearBtn" onclick="sortearAmigo()" disabled>
+                        <div class="button-content">
+                            <i class="fas fa-magic"></i>
+                            <span>Sortear Amigo Secreto</span>
+                            <div class="button-effect"></div>
+                        </div>
+                    </button>
+                    
+                    <div class="result-container" id="resultContainer" style="display: none;">
+                        <div class="result-card">
+                            <div class="result-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h3>🎉 Resultado do Sorteio</h3>
+                            <div id="resultado" class="result-text"></div>
+                            <button class="new-draw-btn" onclick="novoSorteio()">
+                                <i class="fas fa-redo"></i>
+                                Sortear Novamente
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
+
+    <!-- Toast notifications -->
+    <div id="toast" class="toast"></div>
+    
+    <!-- Confetti container -->
+    <div id="confetti-container"></div>
 
     <script src="app.js" defer></script>
 </body>
